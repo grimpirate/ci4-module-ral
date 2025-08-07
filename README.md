@@ -24,7 +24,7 @@ public array $logs = [
 ~
 ```
 php spark db:create logs --ext db
-php spark migrate -n Modules\\RawAccessLog -g logs
-
 chown -R apache:apache logs.db
+php spark migrate -n Modules\\RawAccessLog -g logs
+php spark logs:raw
 ```
