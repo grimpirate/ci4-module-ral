@@ -7,6 +7,7 @@ use Modules\RawAccessLog\Entities\RawAccessLogEntity;
 
 class RawAccessLogModel extends Model
 {
+	protected $DBGroup    = 'logs';
 	protected $table      = 'raw_access_log';
 	protected $primaryKey = 'id';
 

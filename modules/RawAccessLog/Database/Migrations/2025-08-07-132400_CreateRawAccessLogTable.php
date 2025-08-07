@@ -5,7 +5,7 @@ namespace Modules\RawAccessLog\Database\Migrations;
 use CodeIgniter\Database\Migration;
 use CodeIgniter\Database\RawSql;
 
-class RawAccessLogTable extends Migration
+class CreateRawAccessLogTable extends Migration
 {
 	protected $DBGroup = 'logs';
 

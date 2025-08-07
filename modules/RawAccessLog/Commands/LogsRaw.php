@@ -28,6 +28,7 @@ class LogsRaw extends BaseCommand
 			array_map(fn($url) => new File("{$config->path}{$url}{$config->domain}-ssl_log{$date}.gz"), $config->subdomains)
 		)));
 		
-		model(RawAccessLogModel::class)->save($log);
+		foreach($log as $entry)
+			model(RawAccessLogModel::class)->save($entry);
 	}
 }
