@@ -28,7 +28,7 @@ class RawAccessLogEntity extends Entity
 	{
 		$this->attributes['referrer'] = match($referrer) {
 			'-' => null,
-			default => $referrer,
+			default => filter_var($referrer, FILTER_SANITIZE_FULL_SPECIAL_CHARS),
 		};
 
 		return $this;
@@ -38,7 +38,7 @@ class RawAccessLogEntity extends Entity
 	{
 		$this->attributes['user_agent'] = match($userAgent) {
 			'-' => null,
-			default => $userAgent,
+			default => filter_var($userAgent, FILTER_SANITIZE_FULL_SPECIAL_CHARS),
 		};
 
 		return $this;
