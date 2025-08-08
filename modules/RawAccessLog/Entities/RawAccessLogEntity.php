@@ -24,7 +24,7 @@ class RawAccessLogEntity extends Entity
 		'deleted_at'
 	];
 
-	public function setReferrer(string $referrer)
+	public function setReferrer(string $referrer): RawAccessLogEntity
 	{
 		$this->attributes['referrer'] = match($referrer) {
 			'-' => null,
@@ -34,7 +34,7 @@ class RawAccessLogEntity extends Entity
 		return $this;
 	}
 
-	public function setUserAgent(string $userAgent)
+	public function setUserAgent(string $userAgent): RawAccessLogEntity
 	{
 		$this->attributes['user_agent'] = match($userAgent) {
 			'-' => null,
