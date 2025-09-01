@@ -6,7 +6,7 @@ use Modules\RawAccessLog\Entities\RawAccessLogEntity;
 function raw_access_log(File $file): array
 {
 	return array_map(function($row) use($file) {
-		preg_match_all('/^(\H+)\h+-\h+-\h+\[([^\]]+)\]\h+"(\w+)\h+(\H+)\h+([^"]+)"\h+(\d+)\h+(\d+)\h+"([^"]+)"\h+"([^"]+)"$/m', $row, $matches);
+		preg_match_all('/^(\H+)\h+-\h+-\h+\[([^\]]+)\]\h+"(\w+)\h+(\H+)\h+([^"]+)"\h+(\d+)\h+(\d+)\h+"([^"]+)"\h+"(.+)"$/m', $row, $matches);
 		return new RawAccessLogEntity([
 			'log_file' => $file->getBasename(),
 			'ip_address' => reset($matches[1]),
@@ -20,4 +20,5 @@ function raw_access_log(File $file): array
 			'user_agent' => reset($matches[9]),
 		]);
 	}, gzfile($file->getRealPath()));
+
 }
